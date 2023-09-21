@@ -4,8 +4,7 @@ let cache = Object.freeze({})
 let currentSearch = ''
 
 const selectAndShowArticles = () => {
-  const sortCriterion = View.getSortCriterion()
-  const searchedArticles = cache[currentSearch][sortCriterion]
+  const searchedArticles = cache[currentSearch]
   const articlesOfFirstPage = searchedArticles.slice(0, 10)
   View.showArticles(articlesOfFirstPage)
 }
@@ -13,11 +12,7 @@ const selectAndShowArticles = () => {
 const saveArticlesInCache = key => searchedArticles => {
   cache = Object.freeze({
     ...cache,
-    [key]: {
-      relevance: searchedArticles,
-      date: List.sortDescendingBy('date')([ ...searchedArticles ]),
-      size: List.sortDescendingBy('size')([ ...searchedArticles ]),
-    },
+    [key]: searchedArticles,
   })
 }
 

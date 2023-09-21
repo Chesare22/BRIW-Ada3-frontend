@@ -44,18 +44,9 @@ const View = (() => {
   }
 
 
-  const getSortCriterion = () => {
-    const sortCriterionInputs = document.getElementsByName('sort-criterion')
-    return Array.from(sortCriterionInputs)
-      .find(element => element.checked)
-      .value
-  }
-
-
   return Object.freeze({
     showErrorMessage,
     hideErrorMessage,
     showArticles,
-    getSortCriterion,
   })
 })()
