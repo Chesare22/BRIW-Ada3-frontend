@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Buscador de Wikipedia</title>
+  <script defer src="./index.js"></script>
+  <script src="./modules/View.js"></script>
+  <script src="./modules/Events.js"></script>
+  <script src="./modules/Queries.js"></script>
+  <script src="./modules/List.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+  <!-- Svg assets -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="loader">
+      <path fill="currentColor" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+      </path>
+    </symbol>
+  </svg>
+
+  <main>
+    <!-- Search input -->
+    <div class="search-bar">
+      <label for="search" class="search-bar-label">Buscar artículo en Wikipedia:</label>
+      <input type="search" id="search-input" name="search" class="search-bar-input"/>
+      <button id="search-button" class="search-bar-button">
+        Buscar
+      </button>
+      <span id="error-message" class="error-message"></span>
+      <fieldset id="sort-criterion" class="sort-criterion">
+        <legend>Ordenar por:</legend>
+        
+        <div class="radio-buttons-container">
+          <div>
+            <input type="radio" name="sort-criterion" id="sort-by-relevance" value="relevance" checked />
+          <label for="sort-by-relevance">Relevancia</label>
+        </div>
+        
+        <div>
+          <input type="radio" name="sort-criterion" id="sort-by-date" value="date" />
+          <label for="sort-by-date">Fecha</label>
+        </div>
+        
+        <div>
+          <input type="radio" name="sort-criterion" id="sort-by-size" value="size" />
+          <label for="sort-by-size">Tamaño</label>
+        </div>
+      </fieldset>
+    </div>
+    <div id="articles" class="articles-container"></div>
+  </main>
+  <!-- <svg id="search-button-loader" viewBox="0 0 100 100" width="16" height="16">
+    <use xlink:href="#loader" />
+  </svg> -->
+</body>
+
+</html>
