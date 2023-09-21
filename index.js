@@ -1,12 +1,11 @@
-/* global View:readonly Queries:readonly Events:readonly List:readonly */
+/* global View:readonly Queries:readonly Events:readonly */
 
 let cache = Object.freeze({})
 let currentSearch = ''
 
 const selectAndShowArticles = () => {
   const searchedArticles = cache[currentSearch]
-  const articlesOfFirstPage = searchedArticles.slice(0, 10)
-  View.showArticles(articlesOfFirstPage)
+  console.log(searchedArticles)
 }
 
 const saveArticlesInCache = key => searchedArticles => {
@@ -34,11 +33,7 @@ const searchEventListener = () => {
     selectAndShowArticles()
   } else {
     Queries
-      .searchAll(searchedValue)
-      .then(List.map(({ timestamp, ...article }) => ({
-        date: new Date(timestamp),
-        ...article,
-      })))
+      .search(searchedValue)
       .then(saveArticlesInCache(searchedValue))
       .then(selectAndShowArticles)
   }
