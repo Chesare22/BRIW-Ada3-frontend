@@ -5,13 +5,13 @@ let currentSearch = ''
 
 const selectAndShowArticles = () => {
   const searchedArticles = cache[currentSearch]
-  console.log(searchedArticles)
+  View.showTables(searchedArticles)
 }
 
 const saveArticlesInCache = key => searchedArticles => {
   cache = Object.freeze({
     ...cache,
-    [key]: searchedArticles,
+    [key]: searchedArticles.tables,
   })
 }
 
