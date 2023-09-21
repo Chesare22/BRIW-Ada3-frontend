@@ -1,0 +1,92 @@
+body {
+  background-color: antiquewhite;
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+main {
+  padding-left: calc((100vw - 1068px)/2);
+  padding-top: 2rem;
+  width: 40rem;
+}
+
+
+.search-bar {
+  position: relative;
+  display: grid;
+  column-gap: 0.25rem;
+  justify-content: start;
+  grid-template-areas:
+    "label input button"
+    ". error-message ."
+    "sort-criterion sort-criterion sort-criterion";
+  justify-items: start;
+  margin-bottom: 2rem;
+}
+
+.error-message {
+  position: absolute;
+  color: #f44336;
+  grid-area: error-message;
+}
+
+.search-bar-label {
+  grid-area: label;
+}
+
+.search-bar-input {
+  grid-area: input;
+}
+
+.search-bar-button {
+  grid-area: button;
+}
+
+.sort-criterion {
+  margin-top: 0.75rem;
+  grid-area: sort-criterion;
+}
+
+.radio-buttons-container {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+
+.articles-container {
+  display: grid;
+  justify-items: start;
+  row-gap: 1rem;
+}
+
+.article-title {
+  font-size: 1.25em;
+  font-weight: 400;
+  text-decoration: none;
+}
+.article-title:hover{
+  text-decoration: underline;
+}
+
+.article-snippet {
+  font-size: 0.875em;
+  margin-top: 0;
+  margin-bottom: 0.1rem;
+}
+.article-snippet .searchmatch {
+  font-weight: 600;
+}
+
+.article-metadata {
+  font-size: 0.75em;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+}
