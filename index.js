@@ -3,15 +3,15 @@
 let cache = Object.freeze({})
 let currentSearch = ''
 
-const selectAndShowArticles = () => {
-  const searchedArticles = cache[currentSearch]
-  View.showTables(searchedArticles)
+const selectAndShowTables = () => {
+  const searchedTables = cache[currentSearch]
+  View.showTables(searchedTables)
 }
 
-const saveArticlesInCache = key => searchedArticles => {
+const saveTablesInCache = key => searchedTables => {
   cache = Object.freeze({
     ...cache,
-    [key]: searchedArticles.tables,
+    [key]: searchedTables.tables,
   })
 }
 
@@ -30,12 +30,12 @@ const searchEventListener = () => {
   currentSearch = searchedValue
 
   if (cache[searchedValue]) {
-    selectAndShowArticles()
+    selectAndShowTables()
   } else {
     Queries
       .search(searchedValue)
-      .then(saveArticlesInCache(searchedValue))
-      .then(selectAndShowArticles)
+      .then(saveTablesInCache(searchedValue))
+      .then(selectAndShowTables)
   }
 }
 
